@@ -418,17 +418,55 @@ li {
 }
 
 .career-item {
+  position: relative;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 120px minmax(0, 1fr);
-  align-items: start;
+  gap: 1.2rem;
+  grid-template-columns: 120px 28px minmax(0, 1fr);
+  align-items: center;
+}
+
+.career-item::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: calc(120px + 1.2rem + 14px);
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.career-item:first-child::before {
+  top: 50%;
+}
+
+.career-item:last-child::before {
+  bottom: 50%;
+}
+
+.career-item::after {
+  content: "";
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 0.72rem;
+  height: 0.72rem;
+  border: 0.42rem solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
 .career-date {
   color: var(--accent);
   font-weight: 700;
-  padding-top: 0.8rem;
   font-size: 0.95rem;
+  text-align: right;
+}
+
+.career-content {
+  grid-column: 3;
 }
 
 .career-list {
@@ -496,14 +534,8 @@ li {
   .about-card,
   .two-columns,
   .publication-list,
-  .project-grid,
-  .career-item {
+  .project-grid {
     grid-template-columns: 1fr;
-  }
-
-  .career-date {
-    padding-top: 0;
-    padding-left: 0.25rem;
   }
 
   .about-card-image {
@@ -550,6 +582,29 @@ li {
 
   .about-card-image {
     max-width: 200px;
+  }
+
+  .career-item {
+    gap: 0.7rem 0.9rem;
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+
+  .career-item::before {
+    left: 14px;
+  }
+
+  .career-item::after {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .career-date,
+  .career-content {
+    grid-column: 2;
+  }
+
+  .career-date {
+    text-align: left;
   }
 
   .link-row a,
