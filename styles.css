@@ -180,7 +180,6 @@ li {
 .project-grid,
 .publication-list,
 .info-stack,
-.news-list,
 .career-list {
   display: grid;
   gap: 1.25rem;
@@ -190,7 +189,6 @@ li {
 .info-card,
 .publication-item,
 .project-card,
-.news-body,
 .career-content,
 .text-panel {
   background: var(--surface-strong);
@@ -293,8 +291,7 @@ li {
   flex-wrap: wrap;
 }
 
-.section-subtext,
-.filter-note {
+.section-subtext {
   margin: 0;
   color: var(--muted);
 }
@@ -308,7 +305,6 @@ li {
 .info-card,
 .publication-item,
 .project-card,
-.news-body,
 .career-content {
   padding: 1.25rem 1.35rem;
 }
@@ -323,11 +319,6 @@ li {
   padding-left: 1.15rem;
 }
 
-.filter-note {
-  margin-bottom: 1rem;
-}
-
-.news-item,
 .career-item {
   display: grid;
   gap: 1rem;
@@ -335,7 +326,6 @@ li {
   align-items: start;
 }
 
-.news-year,
 .career-date {
   color: var(--accent);
   font-weight: 700;
@@ -343,8 +333,7 @@ li {
   font-size: 0.95rem;
 }
 
-.career-list,
-.news-list {
+.career-list {
   gap: 1rem;
 }
 
@@ -406,12 +395,10 @@ li {
   .two-columns,
   .publication-list,
   .project-grid,
-  .news-item,
   .career-item {
     grid-template-columns: 1fr;
   }
 
-  .news-year,
   .career-date {
     padding-top: 0;
     padding-left: 0.25rem;
