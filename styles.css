@@ -504,16 +504,7 @@ li {
 }
 
 .project-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.project-label {
-  margin: 0 0 0.45rem;
-  color: var(--accent);
-  font-size: 0.84rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  grid-template-columns: 1fr;
 }
 
 .publication-item {
@@ -568,6 +559,15 @@ li {
   min-height: 36px;
   padding: 0.55rem 0.8rem;
   font-size: 0.9rem;
+}
+
+.project-actions {
+  margin-bottom: 0.8rem;
+}
+
+.project-profile-link {
+  justify-content: flex-start;
+  margin-top: 0.65rem;
 }
 
 .site-footer {
