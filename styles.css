@@ -1,6 +1,8 @@
 :root {
   --bg: #f6f8fc;
   --bg-alt: #eef3fb;
+  --section-light: #f6f8fc;
+  --section-tint: var(--accent-soft);
   --surface: #ffffff;
   --surface-strong: rgba(255, 255, 255, 0.92);
   --text: #15202b;
@@ -27,9 +29,7 @@ body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top right, rgba(31, 79, 163, 0.08), transparent 24%),
-    linear-gradient(180deg, #f9fbff 0%, #f5f7fb 100%);
+  background: var(--section-light);
 }
 
 img {
@@ -123,8 +123,12 @@ a:hover {
   padding: 3.6rem 0;
 }
 
-.section + .section {
-  border-top: 1px solid rgba(220, 228, 241, 0.65);
+main .section:nth-of-type(odd) {
+  background: var(--section-tint);
+}
+
+main .section:nth-of-type(even) {
+  background: var(--section-light);
 }
 
 .hero-section {
