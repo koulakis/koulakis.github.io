@@ -14,6 +14,108 @@ const rotatingPhrases = [
 
 let rotatingIndex = 0;
 
+const socialProfiles = {
+  scholar: {
+    label: 'Google Scholar',
+    url: 'https://scholar.google.com/citations?user=2k0YV9cAAAAJ&hl=en',
+    icon: () => `
+      <svg class="social-icon scholar-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="15.7" r="5.4" />
+        <path d="M2.6 8.2 12 3.3l9.4 4.9-9.4 4.9-9.4-4.9Z" />
+        <path d="M18.8 9.7v4.7" />
+        <circle cx="18.8" cy="16.2" r="1" />
+      </svg>
+    `
+  },
+  linkedin: {
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/marioskoulakis',
+    icon: (id) => `
+      <svg class="social-icon linkedin-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <mask id="linkedin-cutout-${id}">
+            <rect width="24" height="24" fill="white" />
+            <path fill="black" d="M5.5 9.8h2.7v8.1H5.5V9.8Zm1.4-4a1.5 1.5 0 1 1 0 3.1 1.5 1.5 0 0 1 0-3.1Zm3.5 4H13v1.1h.1c.4-.7 1.2-1.3 2.5-1.3 2.7 0 3.2 1.8 3.2 4.1v4.2h-2.7v-3.8c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8h-3.1V9.8Z" />
+          </mask>
+        </defs>
+        <rect x="2.2" y="3" width="19.8" height="18" rx="3.2" mask="url(#linkedin-cutout-${id})" />
+      </svg>
+    `
+  },
+  github: {
+    label: 'GitHub',
+    url: 'https://github.com/koulakis',
+    icon: () => `
+      <svg class="social-icon github-mark" viewBox="0 0 98 96" aria-hidden="true">
+        <path d="M48.9 0C21.9 0 0 21.8 0 48.7c0 21.6 14.1 39.9 33.6 46.4 2.5.5 3.4-1.1 3.4-2.4 0-1.2 0-4.2-.1-8.3-13.7 3-16.5-6.6-16.5-6.6-2.2-5.7-5.5-7.2-5.5-7.2-4.5-3 .3-3 .3-3 4.9.3 7.5 5 7.5 5 4.4 7.5 11.5 5.3 14.3 4.1.4-3.2 1.7-5.3 3.1-6.6-10.9-1.2-22.3-5.4-22.3-24.2 0-5.4 1.9-9.7 5-13.1-.5-1.2-2.2-6.2.5-13 0 0 4.1-1.3 13.5 5 3.9-1.1 8.1-1.6 12.3-1.7 4.2 0 8.4.6 12.3 1.7 9.4-6.3 13.5-5 13.5-5 2.7 6.8 1 11.8.5 13 3.1 3.4 5 7.8 5 13.1 0 18.8-11.5 23-22.4 24.2 1.8 1.5 3.3 4.5 3.3 9.1 0 6.6-.1 11.9-.1 13.5 0 1.3.9 2.8 3.4 2.4C84 88.6 98 70.3 98 48.7 98 21.8 76.1 0 48.9 0Z" />
+      </svg>
+    `
+  },
+  x: {
+    label: 'X',
+    url: 'https://x.com/marioskoul',
+    icon: () => `
+      <svg class="social-icon x-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.9 1.2h3.7l-8.1 9.2L24 22.8h-7.4l-5.8-7.6-6.7 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9Zm-1.3 19.4h2L6.5 3.3H4.3l13.3 17.3Z" />
+      </svg>
+    `
+  },
+  instagram: {
+    label: 'Instagram',
+    url: 'https://www.instagram.com/marios.dance',
+    className: 'instagram-link',
+    icon: (id) => `
+      <svg class="social-icon instagram-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <mask id="instagram-cutout-${id}">
+            <rect width="24" height="24" fill="white" />
+            <rect x="7.2" y="7.2" width="9.6" height="9.6" rx="3" fill="none" stroke="black" stroke-width="1.7" />
+            <circle cx="12" cy="12" r="2.2" fill="none" stroke="black" stroke-width="1.7" />
+            <circle cx="15" cy="9" r="0.8" fill="black" />
+          </mask>
+        </defs>
+        <rect x="3" y="3" width="18" height="18" rx="4.2" mask="url(#instagram-cutout-${id})" />
+      </svg>
+    `
+  }
+};
+
+function renderSocialLinks() {
+  document.querySelectorAll('[data-social-links]').forEach((container, containerIndex) => {
+    const requestedProfiles = container.dataset.socialLinks
+      .split(/[,\s]+/)
+      .filter(Boolean);
+    const rowBreakAfter = container.dataset.rowBreakAfter;
+    const fragment = document.createDocumentFragment();
+
+    requestedProfiles.forEach((profileKey) => {
+      const profile = socialProfiles[profileKey];
+      if (!profile) return;
+
+      const iconId = `${profileKey}-${containerIndex}`;
+      const link = document.createElement('a');
+      link.href = profile.url;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.setAttribute('aria-label', profile.label);
+      link.title = profile.label;
+      if (profile.className) link.classList.add(profile.className);
+      link.innerHTML = profile.icon(iconId);
+
+      fragment.append(link);
+
+      if (rowBreakAfter === profileKey) {
+        const rowBreak = document.createElement('span');
+        rowBreak.className = 'social-row-break';
+        rowBreak.setAttribute('aria-hidden', 'true');
+        fragment.append(rowBreak);
+      }
+    });
+
+    container.replaceChildren(fragment);
+  });
+}
+
 function closeMenu() {
   if (!mainNav || !navToggle) return;
   mainNav.classList.remove('is-open');
@@ -28,6 +130,8 @@ navToggle?.addEventListener('click', () => {
 navLinks.forEach((link) => {
   link.addEventListener('click', () => closeMenu());
 });
+
+renderSocialLinks();
 
 const observer = new IntersectionObserver(
   (entries) => {
