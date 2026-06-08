@@ -27,6 +27,15 @@ const socialProfiles = {
       </svg>
     `
   },
+  researchgate: {
+    label: 'ResearchGate',
+    url: 'https://www.researchgate.net/profile/Marios-Koulakis?ev=hdr_xprf',
+    icon: () => `
+      <svg class="social-icon researchgate-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <text x="11.2" y="17.8" text-anchor="middle">RG</text>
+      </svg>
+    `
+  },
   linkedin: {
     label: 'LinkedIn',
     url: 'https://www.linkedin.com/in/marioskoulakis',

@@ -325,6 +325,19 @@ li {
   height: 1.3rem;
 }
 
+.social-links .researchgate-mark {
+  width: 1.42rem;
+  height: 1.42rem;
+}
+
+.researchgate-mark text {
+  fill: currentColor;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16.8px;
+  font-weight: 800;
+  letter-spacing: -0.16em;
+}
+
 .scholar-mark circle:first-child {
   fill: none;
   stroke: currentColor;
@@ -387,6 +400,11 @@ li {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.research-heading .social-links {
+  justify-content: flex-start;
+  margin-top: 0.65rem;
 }
 
 .section-subtext {
@@ -481,12 +499,14 @@ li {
   margin-bottom: 0.95rem;
 }
 
-.publication-list,
+.publication-list {
+  grid-template-columns: 1fr;
+}
+
 .project-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.pub-meta,
 .project-label {
   margin: 0 0 0.45rem;
   color: var(--accent);
@@ -496,9 +516,58 @@ li {
   letter-spacing: 0.08em;
 }
 
-.placeholder-item span {
-  color: var(--muted);
-  font-weight: 600;
+.publication-item {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: center;
+}
+
+.publication-media {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.publication-media img {
+  width: 100%;
+  max-height: 22rem;
+  object-fit: contain;
+  border-radius: var(--radius-small);
+  background: var(--bg-alt);
+}
+
+.publication-content h4 {
+  margin-bottom: 0.7rem;
+}
+
+.pub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.pub-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.68rem;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.paper-actions {
+  margin-top: 0.9rem;
+  gap: 0.5rem;
+}
+
+.paper-actions a {
+  min-height: 36px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
 }
 
 .site-footer {
@@ -533,9 +602,17 @@ li {
 
   .about-card,
   .two-columns,
-  .publication-list,
+  .publication-item,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .publication-media {
+    align-self: auto;
+  }
+
+  .publication-media img {
+    max-height: 18rem;
   }
 
   .about-card-image {
@@ -612,6 +689,10 @@ li {
   .muted-link {
     width: 100%;
     justify-content: center;
+  }
+
+  .paper-actions a {
+    width: auto;
   }
 
   .social-links a {
