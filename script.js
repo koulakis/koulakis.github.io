@@ -5,11 +5,11 @@ const sections = Array.from(document.querySelectorAll('main .section'));
 const rotatingText = document.getElementById('rotating-text');
 
 const rotatingPhrases = [
-  'Geometry for machine learning',
-  'Manifold learning and data geometry',
-  'Representation learning and structure',
-  'Computer vision and reliable AI',
-  'Research, tools, and teaching'
+  'Geometry For Machine Learning',
+  'Manifold Learning And Data Geometry',
+  'Representation Learning And Structure',
+  'Computer Vision And Reliable AI',
+  'Research, Tools, And Teaching'
 ];
 
 let rotatingIndex = 0;
