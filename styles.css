@@ -594,6 +594,50 @@ li {
   flex-wrap: nowrap;
 }
 
+.footer-privacy-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer-privacy-link:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.privacy-section {
+  min-height: calc(100vh - 73px);
+}
+
+.privacy-panel {
+  color: var(--text);
+  max-width: 760px;
+}
+
+.privacy-panel h1 {
+  margin-bottom: 1rem;
+}
+
+.privacy-panel p {
+  color: inherit;
+}
+
+.privacy-back-link {
+  margin-top: 1.5rem;
+}
+
+.privacy-back-link a {
+  font-weight: 700;
+}
+
 @media (max-width: 920px) {
   .section {
     padding: 3rem 0;
