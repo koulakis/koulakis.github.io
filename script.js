@@ -2,17 +2,6 @@ const navToggle = document.querySelector('.nav-toggle');
 const mainNav = document.querySelector('.main-nav');
 const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
 const sections = Array.from(document.querySelectorAll('main .section'));
-const rotatingText = document.getElementById('rotating-text');
-
-const rotatingPhrases = [
-  'Geometry For Machine Learning',
-  'Manifold Learning And Data Geometry',
-  'Representation Learning And Structure',
-  'Computer Vision And Reliable AI',
-  'Research, Tools, And Teaching'
-];
-
-let rotatingIndex = 0;
 
 const socialProfiles = {
   scholar: {
@@ -163,10 +152,3 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
-
-if (rotatingText) {
-  setInterval(() => {
-    rotatingIndex = (rotatingIndex + 1) % rotatingPhrases.length;
-    rotatingText.textContent = rotatingPhrases[rotatingIndex];
-  }, 2800);
-}
