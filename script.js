@@ -70,24 +70,6 @@ const socialProfiles = {
         <path d="M18.9 1.2h3.7l-8.1 9.2L24 22.8h-7.4l-5.8-7.6-6.7 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9Zm-1.3 19.4h2L6.5 3.3H4.3l13.3 17.3Z" />
       </svg>
     `
-  },
-  instagram: {
-    label: 'Instagram',
-    url: 'https://www.instagram.com/marios.dance',
-    className: 'instagram-link',
-    icon: (id) => `
-      <svg class="social-icon instagram-mark" viewBox="0 0 24 24" aria-hidden="true">
-        <defs>
-          <mask id="instagram-cutout-${id}">
-            <rect width="24" height="24" fill="white" />
-            <rect x="7.2" y="7.2" width="9.6" height="9.6" rx="3" fill="none" stroke="black" stroke-width="1.7" />
-            <circle cx="12" cy="12" r="2.2" fill="none" stroke="black" stroke-width="1.7" />
-            <circle cx="15" cy="9" r="0.8" fill="black" />
-          </mask>
-        </defs>
-        <rect x="3" y="3" width="18" height="18" rx="4.2" mask="url(#instagram-cutout-${id})" />
-      </svg>
-    `
   }
 };
 

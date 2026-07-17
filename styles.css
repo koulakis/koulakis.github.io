@@ -390,20 +390,6 @@ li {
   height: 1rem;
 }
 
-.social-links .instagram-link {
-  color: var(--accent-strong);
-}
-
-.social-links .instagram-link:hover {
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-}
-
-.social-links .instagram-mark {
-  width: 1.28rem;
-  height: 1.28rem;
-}
-
 .muted-link {
   opacity: 0.65;
   cursor: default;
