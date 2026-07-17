@@ -49,6 +49,19 @@ const socialProfiles = {
       </svg>
     `
   },
+  cv: {
+    label: 'Curriculum Vitae (PDF)',
+    url: 'assets/Marios_Koulakis_CV.pdf',
+    className: 'cv-link',
+    icon: () => `
+      <svg class="social-icon cv-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path class="cv-page" d="M6.2 2.8h7.7l3.9 3.9v14.5H6.2V2.8Z" />
+        <path class="cv-fold" d="M13.9 2.8v3.9h3.9" />
+        <text x="12" y="12.7" text-anchor="middle">CV</text>
+        <path class="cv-lines" d="M9 15.4h6M9 17.8h4.7" />
+      </svg>
+    `
+  },
   x: {
     label: 'X',
     url: 'https://x.com/marioskoul',
